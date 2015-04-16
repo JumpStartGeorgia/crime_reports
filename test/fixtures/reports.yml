@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  official_case_number: MyString
+  crime_date: 2015-04-15
+  crime_time: 2015-04-15 16:11:15
+  location_address: MyString
+  location_lat: 1.5
+  location_lon: 1.5
+  location_category: MyString
+  emergency_arrival_time: 2015-04-15 16:11:15
+  police_arrival_time: 2015-04-15 16:11:15
+  relationship_id: 1
+  weapon_id: 1
+  motive_id: 1
+  report_status_id: 1
+
+two:
+  official_case_number: MyString
+  crime_date: 2015-04-15
+  crime_time: 2015-04-15 16:11:15
+  location_address: MyString
+  location_lat: 1.5
+  location_lon: 1.5
+  location_category: MyString
+  emergency_arrival_time: 2015-04-15 16:11:15
+  police_arrival_time: 2015-04-15 16:11:15
+  relationship_id: 1
+  weapon_id: 1
+  motive_id: 1
+  report_status_id: 1
