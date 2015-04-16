@@ -2,7 +2,18 @@ class RelationshipTranslation < ActiveRecord::Base
   attr_accessible :relationship_id, :name, :description, :locale, :relationship_translations
 	belongs_to :relationship
 
-	def self.by_name(name)
-    with_translations(I18n.locale).find_by_name(name)
+  validates :name, :presence => true
+
+  def required_data_provided?
+    provided = false
+
+    provided = self.name.present? && self.description.present?
+
+    return provided
+  end
+
+  def add_required_data(obj)
+    self.name = obj.name if self.name.blank?
+    self.description = obj.description if self.description.blank?
   end
 end

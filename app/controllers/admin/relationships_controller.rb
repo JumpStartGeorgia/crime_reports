@@ -55,7 +55,7 @@ class Admin::RelationshipsController < ApplicationController
 
     respond_to do |format|
       if @relationship.save
-        format.html { redirect_to admin_relationship_path(@relationship), notice: t('app.msgs.success_created', :obj => t('activerecord.models.relationship')) }
+        format.html { redirect_to admin_relationships_url, notice: t('app.msgs.success_created', :obj => t('activerecord.models.relationship')) }
         format.json { render json: @relationship, status: :created, location: @relationship }
       else
         format.html { render action: "new" }
@@ -75,7 +75,7 @@ class Admin::RelationshipsController < ApplicationController
 
     respond_to do |format|
       if @relationship.update_attributes(params[:relationship])
-        format.html { redirect_to admin_relationship_path(@relationship), notice: t('app.msgs.success_updated', :obj => t('activerecord.models.relationship')) }
+        format.html { redirect_to admin_relationships_url, notice: t('app.msgs.success_updated', :obj => t('activerecord.models.relationship')) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

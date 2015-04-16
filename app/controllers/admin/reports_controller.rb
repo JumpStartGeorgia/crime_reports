@@ -49,7 +49,7 @@ class Admin::ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to admin_report_path(@report), notice: t('app.msgs.success_created', :obj => t('activerecord.models.report')) }
+        format.html { redirect_to admin_reports_url, notice: t('app.msgs.success_created', :obj => t('activerecord.models.report')) }
         format.json { render json: @report, status: :created, location: @report }
       else
         format.html { render action: "new" }
@@ -65,7 +65,7 @@ class Admin::ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.update_attributes(params[:report])
-        format.html { redirect_to admin_report_path(@report), notice: t('app.msgs.success_updated', :obj => t('activerecord.models.report')) }
+        format.html { redirect_to admin_reports_url, notice: t('app.msgs.success_updated', :obj => t('activerecord.models.report')) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
