@@ -12,7 +12,7 @@
     <%= f.input :location_lat %>
     <%= f.input :emergency_arrival_time %>
     <%= f.input :police_arrival_time %>
-		<%= f.input :relationship_id, :as => :select, :collection => Relationship.all %>
+		<%= f.input :relationship, :as => :select, :collection => Relationship.all %>
   <% end %>
 
   <div class="form-group">
