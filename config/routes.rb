@@ -17,6 +17,7 @@ BootstrapStarter::Application.routes.draw do
       resources :social_statuses
       resources :family_statuses
       resources :actor_types
+      resources :substances
       resources :reports
       resources :relationships
       resources :statuses

@@ -1,5 +1,5 @@
 class Actor < ActiveRecord::Base
-  attr_accessible :children, :crim_back, :dob, :fname, :gender, :gun, :lname, :mental_reg, :actor_type_id, :family_status_id, :social_status_id, :education_status_id, :employment_status_id
+  attr_accessible :children, :crim_back, :dob, :fname, :gender, :gun, :lname, :mental_reg, :actor_type_id, :family_status_id, :social_status_id, :education_status_id, :employment_status_id, :substance_id
 
   belongs_to :report
 

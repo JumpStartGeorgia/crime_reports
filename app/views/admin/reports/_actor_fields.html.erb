@@ -14,6 +14,8 @@
     <%= f.input :crim_back, :as => :radio, :label => 'Has Criminal Background?' %>
     <%= f.input :mental_reg, :as => :radio, :label => 'Has Mental History?'  %>
     <%= f.input :gun, :as => :radio, :label => 'Has Gun?' %>
+    <%= f.input :substance_id, as: :select, collection: Substance.all %>
+
     <%= link_to_remove_association "Remove Actor", f, :class => 'btn btn-warning' %>
   <% end %>
 </div>
