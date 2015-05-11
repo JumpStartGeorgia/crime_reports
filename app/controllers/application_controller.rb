@@ -2,8 +2,6 @@ class ApplicationController < ActionController::Base
 	require 'will_paginate/array'
   protect_from_forgery
 
-	//= require cocoon
-
 	before_filter :set_locale
 	before_filter :is_browser_supported?
 	before_filter :preload_global_variables
