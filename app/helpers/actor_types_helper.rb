@@ -1,0 +1,2 @@
+module ActorTypesHelper
+end

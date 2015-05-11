@@ -18,3 +18,16 @@
 #actors .links {
   margin: 10px 0 10px 0;
 }
+
+#report_actors_attributes_0_dob_1i { width: 20% }
+#report_actors_attributes_0_dob_2i { width: 25% }
+#report_actors_attributes_0_dob_3i { width: 15% }
+
+// Fix background-color
+.date_select label {
+  display: block;
+}
+
+.date_select .form-control {
+  display: inline;
+}

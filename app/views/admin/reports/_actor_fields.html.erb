@@ -1,9 +1,15 @@
 <div class='nested-fields form-group'>
+  <h3>Actor</h3>
   <%= f.inputs do %>
+    <%= f.input :actor_type_id, as: :select, collection: ActorType.all %>
     <%= f.input :fname, :label => 'First Name' %>
     <%= f.input :lname, :label => 'Last Name' %>
     <%= f.input :gender, :as => :radio, :collection => ['Male', 'Female'] %>
     <%= f.input :dob, :label => 'Date of Birth' %>
+    <%= f.input :family_status_id, as: :select, collection: FamilyStatus.all %>
+    <%= f.input :social_status_id, as: :select, collection: SocialStatus.all %>
+    <%= f.input :employment_status_id, as: :select, collection: EmploymentStatus.all %>
+    <%= f.input :education_status_id, as: :select, collection: EducationStatus.all %>
     <%= f.input :children, :label => 'Number of Children' %>
     <%= f.input :crim_back, :as => :radio, :label => 'Has Criminal Background?' %>
     <%= f.input :mental_reg, :as => :radio, :label => 'Has Mental History?'  %>

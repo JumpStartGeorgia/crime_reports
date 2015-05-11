@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150511163946) do
+ActiveRecord::Schema.define(:version => 20150511201150) do
+
+  create_table "actor_type_translations", :force => true do |t|
+    t.integer  "actor_type_id"
+    t.string   "locale",        :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "name"
+  end
+
+  add_index "actor_type_translations", ["actor_type_id"], :name => "index_actor_type_translations_on_actor_type_id"
+  add_index "actor_type_translations", ["locale"], :name => "index_actor_type_translations_on_locale"
+
+  create_table "actor_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "actors", :force => true do |t|
     t.string   "fname"
@@ -22,12 +39,73 @@ ActiveRecord::Schema.define(:version => 20150511163946) do
     t.boolean  "crim_back"
     t.boolean  "mental_reg"
     t.boolean  "gun"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.integer  "report_id"
+    t.integer  "actor_type_id"
+    t.integer  "education_status_id"
+    t.integer  "employment_status_id"
+    t.integer  "family_status_id"
+    t.integer  "social_status_id"
   end
 
+  add_index "actors", ["actor_type_id"], :name => "index_actors_on_actor_type_id"
+  add_index "actors", ["education_status_id"], :name => "index_actors_on_education_status_id"
+  add_index "actors", ["employment_status_id"], :name => "index_actors_on_employment_status_id"
+  add_index "actors", ["family_status_id"], :name => "index_actors_on_family_status_id"
   add_index "actors", ["report_id"], :name => "index_actors_on_report_id"
+  add_index "actors", ["social_status_id"], :name => "index_actors_on_social_status_id"
+
+  create_table "education_status_translations", :force => true do |t|
+    t.integer  "education_status_id"
+    t.string   "locale",              :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "name"
+  end
+
+  add_index "education_status_translations", ["education_status_id"], :name => "index_education_status_translations_on_education_status_id"
+  add_index "education_status_translations", ["locale"], :name => "index_education_status_translations_on_locale"
+
+  create_table "education_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "employment_status_translations", :force => true do |t|
+    t.integer  "employment_status_id"
+    t.string   "locale",               :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "name"
+  end
+
+  add_index "employment_status_translations", ["employment_status_id"], :name => "index_employment_status_translations_on_employment_status_id"
+  add_index "employment_status_translations", ["locale"], :name => "index_employment_status_translations_on_locale"
+
+  create_table "employment_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "family_status_translations", :force => true do |t|
+    t.integer  "family_status_id"
+    t.string   "locale",           :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "name"
+  end
+
+  add_index "family_status_translations", ["family_status_id"], :name => "index_family_status_translations_on_family_status_id"
+  add_index "family_status_translations", ["locale"], :name => "index_family_status_translations_on_locale"
+
+  create_table "family_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "motive_translations", :force => true do |t|
     t.integer  "motive_id"
@@ -105,6 +183,23 @@ ActiveRecord::Schema.define(:version => 20150511163946) do
   add_index "reports", ["relationship_id"], :name => "index_reports_on_relationship_id"
   add_index "reports", ["status_id"], :name => "index_reports_on_status_id"
   add_index "reports", ["weapon_id"], :name => "index_reports_on_weapon_id"
+
+  create_table "social_status_translations", :force => true do |t|
+    t.integer  "social_status_id"
+    t.string   "locale",           :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "name"
+  end
+
+  add_index "social_status_translations", ["locale"], :name => "index_social_status_translations_on_locale"
+  add_index "social_status_translations", ["social_status_id"], :name => "index_social_status_translations_on_social_status_id"
+
+  create_table "social_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "status_translations", :force => true do |t|
     t.integer  "status_id"
