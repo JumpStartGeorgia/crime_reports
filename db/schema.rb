@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150510162904) do
+ActiveRecord::Schema.define(:version => 20150511064045) do
 
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
@@ -49,10 +49,7 @@ ActiveRecord::Schema.define(:version => 20150510162904) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "report_id"
   end
-
-  add_index "relationships", ["report_id"], :name => "index_relationships_on_report_id"
 
   create_table "reports", :force => true do |t|
     t.string   "official_case_number"
