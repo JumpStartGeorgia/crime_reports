@@ -3,8 +3,6 @@ BootstrapStarter::Application.routes.draw do
 
 
 
-
-
 	#--------------------------------
 	# all resources should be within the scope block below
 	#--------------------------------
@@ -19,6 +17,9 @@ BootstrapStarter::Application.routes.draw do
 		namespace :admin do
       resources :reports
       resources :relationships
+      resources :statuses
+      resources :motives
+      resources :weapons
       resources :pages
 			resources :users
 		end

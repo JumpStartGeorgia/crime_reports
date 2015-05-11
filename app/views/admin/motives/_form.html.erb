@@ -1,8 +1,8 @@
-<%= semantic_form_for([:admin, @relationship]) do |f| %>
+<%= semantic_form_for([:admin, @motive]) do |f| %>
 	<%= f.error_messages %>
 
-  <% create_sorted_translation_objects(@relationship.relationship_translations).each do |trans| %>
-		<%= f.fields_for :relationship_translations, trans do |translation| %>
+  <% create_sorted_translation_objects(@motive.motive_translations).each do |trans| %>
+		<%= f.fields_for :motive_translations, trans do |translation| %>
 
 			<div id="form-<%= trans.locale %>" class="multilanguage_nested">
 				<h3><%= t("app.language.#{trans.locale}") %></h3>
@@ -17,6 +17,6 @@
   <div class="form-group">
     <%= f.submit nil, :class => 'btn btn-primary' %>
 	  <%= f.submit t('helpers.links.reset'), :class => 'btn btn-warning', :type => :reset, :name => :reset %>
-	  <%= link_to t('helpers.links.cancel'), admin_relationships_path, :class => 'btn btn-mini btn-warning' %>
+	  <%= link_to t('helpers.links.cancel'), admin_motives_path, :class => 'btn btn-mini btn-warning' %>
   </div>
 <% end %>

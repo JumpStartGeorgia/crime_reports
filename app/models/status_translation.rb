@@ -1,7 +1,7 @@
-class RelationshipTranslation < ActiveRecord::Base
-  attr_accessible :relationship_id, :name, :locale, :relationship_translations
+class StatusTranslation < ActiveRecord::Base
+  attr_accessible :status_id, :name, :locale, :status_translations
 
-	belongs_to :relationship
+	belongs_to :status
 
   validates :name, :presence => true
 

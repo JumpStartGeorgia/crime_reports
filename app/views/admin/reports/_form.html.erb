@@ -13,6 +13,9 @@
     <%= f.input :emergency_arrival_time %>
     <%= f.input :police_arrival_time %>
 		<%= f.input :relationship_id, as: :select, collection: Relationship.all %>
+		<%= f.input :weapon_id, as: :select, collection: Weapon.all %>
+		<%= f.input :motive_id, as: :select, collection: Motive.all %>
+		<%= f.input :status_id, as: :select, collection: Status.all %>
   <% end %>
 
   <div class="form-group">

@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 	require 'will_paginate/array'
   protect_from_forgery
 
+	//= require cocoon
+
 	before_filter :set_locale
 	before_filter :is_browser_supported?
 	before_filter :preload_global_variables
@@ -85,28 +87,28 @@ logger.debug "////////////////////////// BROWSER = #{user_agent}"
 	# only record the path if this is not an ajax call and not a users page (sign in, sign up, etc)
 	def store_location
 		session[:previous_urls] ||= []
-		if session[:previous_urls].first != request.fullpath && 
+		if session[:previous_urls].first != request.fullpath &&
         params[:format] != 'js' && params[:format] != 'json' && !request.xhr? &&
         request.fullpath.index("/users/").nil?
-        
+
 	    session[:previous_urls].unshift request.fullpath
     elsif session[:previous_urls].first != request.fullpath &&
        request.xhr? && !request.fullpath.index("/users/").nil? &&
        params[:return_url].present?
-       
+
       session[:previous_urls].unshift params[:return_url]
 		end
 
 		session[:previous_urls].pop if session[:previous_urls].count > 1
     #Rails.logger.debug "****************** prev urls session = #{session[:previous_urls]}"
 	end
-	
+
   # add in required content for translations if none provided
   # - if default locale does not have translations, use first trans that does as default
   def add_missing_translation_content(ary_trans)
     if ary_trans.present?
       default_trans = ary_trans.select{|x| x.locale == I18n.default_locale.to_s}.first
-  
+
       if default_trans.blank? || !default_trans.required_data_provided?
         # default locale does not have data so get first trans that does have data
         ary_trans.each do |trans|
@@ -128,7 +130,7 @@ logger.debug "////////////////////////// BROWSER = #{user_agent}"
     end
   end
 
-	
+
 
   #######################
 	def render_not_found(exception)

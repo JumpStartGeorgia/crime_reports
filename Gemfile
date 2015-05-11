@@ -5,7 +5,7 @@ gem "rails", "3.2.18"
 gem "mysql2", "~> 0.3.16" # this gem works better with utf-8
 
 gem "json"
-gem "jquery-rails", '~> 3.1.0' #"~> 1.0.19" 
+gem "jquery-rails", '~> 3.1.0' #"~> 1.0.19"
 gem "devise", "~> 2.0.4" # user authentication
 gem 'omniauth' # to login via facebook
 gem 'omniauth-facebook' # to login via facebook
@@ -18,6 +18,7 @@ gem 'globalize', '~> 3.1.0' # internationalization
 gem 'psych', '~> 2.0.5' # yaml parser - default psych in rails has issues
 gem 'gon', '~> 5.0.4' # push data into js
 gem "dynamic_form", "~> 1.1.4" # to see form error messages
+gem "cocoon", "~> 1.2.6"
 gem "i18n-js", "~> 2.1.2" # to show translations in javascript
 gem "capistrano", "~> 2.12.0" # to deploy to server
 gem "exception_notification", "~> 2.5.2" # send an email when exception occurs
@@ -38,7 +39,7 @@ group :assets do
   gem 'less-rails', git: 'git://github.com/metaskills/less-rails.git'
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'  , branch: 'bootstrap3'
   gem 'jquery-datatables-rails', '~> 3.1.1'
-  gem "jquery-ui-rails" , "~> 4.1.2"  
+  gem "jquery-ui-rails" , "~> 4.1.2"
 end
 
 
@@ -51,4 +52,3 @@ end
 group :staging, :production do
   gem 'unicorn', '~> 4.8.3' # http server
 end
-

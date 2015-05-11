@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150511064045) do
+ActiveRecord::Schema.define(:version => 20150511124207) do
+
+  create_table "motive_translations", :force => true do |t|
+    t.integer  "motive_id"
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  add_index "motive_translations", ["locale"], :name => "index_motive_translations_on_locale"
+  add_index "motive_translations", ["motive_id"], :name => "index_motive_translations_on_motive_id"
+
+  create_table "motives", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
@@ -39,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20150511064045) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "name"
-    t.text     "description"
   end
 
   add_index "relationship_translations", ["locale"], :name => "index_relationship_translations_on_locale"
@@ -64,9 +80,32 @@ ActiveRecord::Schema.define(:version => 20150511064045) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.integer  "relationship_id"
+    t.integer  "weapon_id"
+    t.integer  "motive_id"
+    t.integer  "status_id"
   end
 
+  add_index "reports", ["motive_id"], :name => "index_reports_on_motive_id"
   add_index "reports", ["relationship_id"], :name => "index_reports_on_relationship_id"
+  add_index "reports", ["status_id"], :name => "index_reports_on_status_id"
+  add_index "reports", ["weapon_id"], :name => "index_reports_on_weapon_id"
+
+  create_table "status_translations", :force => true do |t|
+    t.integer  "status_id"
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  add_index "status_translations", ["locale"], :name => "index_status_translations_on_locale"
+  add_index "status_translations", ["status_id"], :name => "index_status_translations_on_status_id"
+
+  create_table "statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -91,5 +130,22 @@ ActiveRecord::Schema.define(:version => 20150511064045) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["provider", "uid"], :name => "idx_users_provider"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "weapon_translations", :force => true do |t|
+    t.integer  "weapon_id"
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  add_index "weapon_translations", ["locale"], :name => "index_weapon_translations_on_locale"
+  add_index "weapon_translations", ["weapon_id"], :name => "index_weapon_translations_on_weapon_id"
+
+  create_table "weapons", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
