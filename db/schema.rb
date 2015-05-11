@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150417050706) do
+ActiveRecord::Schema.define(:version => 20150510162904) do
 
   create_table "page_translations", :force => true do |t|
     t.integer  "page_id"
@@ -47,9 +47,8 @@ ActiveRecord::Schema.define(:version => 20150417050706) do
 
   create_table "relationships", :force => true do |t|
     t.string   "name"
-    t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "report_id"
   end
 
@@ -65,18 +64,12 @@ ActiveRecord::Schema.define(:version => 20150417050706) do
     t.string   "location_category"
     t.time     "emergency_arrival_time"
     t.time     "police_arrival_time"
-    t.integer  "relationship_id"
-    t.integer  "weapon_id"
-    t.integer  "motive_id"
-    t.integer  "report_status_id"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
+    t.integer  "relationship_id"
   end
 
-  add_index "reports", ["motive_id"], :name => "index_reports_on_motive_id"
   add_index "reports", ["relationship_id"], :name => "index_reports_on_relationship_id"
-  add_index "reports", ["report_status_id"], :name => "index_reports_on_report_status_id"
-  add_index "reports", ["weapon_id"], :name => "index_reports_on_weapon_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

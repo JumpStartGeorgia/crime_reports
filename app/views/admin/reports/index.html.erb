@@ -16,9 +16,6 @@
       <th><%= model_class.human_attribute_name(:emergency_arrival_time) %></th>
       <th><%= model_class.human_attribute_name(:police_arrival_time) %></th>
       <th><%= model_class.human_attribute_name(:relationship_id) %></th>
-      <th><%= model_class.human_attribute_name(:weapon_id) %></th>
-      <th><%= model_class.human_attribute_name(:motive_id) %></th>
-      <th><%= model_class.human_attribute_name(:report_status_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -36,10 +33,7 @@
         <td><%= report.location_category %></td>
         <td><%= report.emergency_arrival_time %></td>
         <td><%= report.police_arrival_time %></td>
-        <td><%= report.relationship %></td>
-        <td><%= report.weapon_id %></td>
-        <td><%= report.motive_id %></td>
-        <td><%= report.report_status_id %></td>
+        <td><%= report.relationship.name if report.relationship.present? %></td>
         <td><%=l report.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
