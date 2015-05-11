@@ -262,7 +262,7 @@ DEPENDENCIES
   bundler
   cancan (~> 1.6.8)
   capistrano (~> 2.12.0)
-  cocoon
+  cocoon (~> 1.2.6)
   coffee-rails (~> 3.2.2)
   devise (~> 2.0.4)
   dynamic_form (~> 1.1.4)
