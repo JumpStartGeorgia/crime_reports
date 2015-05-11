@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fname: MyString
+  lname: MyString
+  gender: false
+  dob: 2015-05-11
+  children: 1
+  crim_back: false
+  mental_reg: false
+  gun: false
+
+two:
+  fname: MyString
+  lname: MyString
+  gender: false
+  dob: 2015-05-11
+  children: 1
+  crim_back: false
+  mental_reg: false
+  gun: false

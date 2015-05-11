@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150511124207) do
+ActiveRecord::Schema.define(:version => 20150511163946) do
+
+  create_table "actors", :force => true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.boolean  "gender"
+    t.date     "dob"
+    t.integer  "children"
+    t.boolean  "crim_back"
+    t.boolean  "mental_reg"
+    t.boolean  "gun"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "report_id"
+  end
+
+  add_index "actors", ["report_id"], :name => "index_actors_on_report_id"
 
   create_table "motive_translations", :force => true do |t|
     t.integer  "motive_id"

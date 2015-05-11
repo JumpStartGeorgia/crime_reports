@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <i class="fa fa-eye"></i>
+          <a href="<%= root_path(:locale => I18n.locale) %>"><i class="fa fa-eye"></i></a>
           <%= link_to(t('app.common.app_name'), root_path(:locale => I18n.locale),:class=>"navbar-brand font hidden-xs")%>
         </div>
 

@@ -16,6 +16,18 @@
 		<%= f.input :weapon_id, as: :select, collection: Weapon.all %>
 		<%= f.input :motive_id, as: :select, collection: Motive.all %>
 		<%= f.input :status_id, as: :select, collection: Status.all %>
+
+		<hr />
+
+  	<div id='actors'>
+    	<%= f.semantic_fields_for :actors do |actor| %>
+      	<%= render 'actor_fields', :f => actor %>
+    	<% end %>
+    	<div class='links'>
+      	<%= link_to_add_association 'Add An Actor To Report', f, :actors, :class => 'btn btn-primary' %>
+    	</div>
+  	</div>
+
   <% end %>
 
   <div class="form-group">
