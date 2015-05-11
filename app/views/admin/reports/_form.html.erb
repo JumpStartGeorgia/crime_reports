@@ -20,8 +20,8 @@
 		<hr />
 
   	<div id='actors'>
-    	<%= f.semantic_fields_for :actors do |actor| %>
-      	<%= render 'actor_fields', :f => actor %>
+    	<%= f.semantic_fields_for :actors do |actor, i| %>
+      	<%= render :partial => 'actor_fields', :locals => { :f => actor, :i => i } %>
     	<% end %>
     	<div class='links'>
       	<%= link_to_add_association 'Add An Actor To Report', f, :actors, :class => 'btn btn-primary' %>
