@@ -18,5 +18,22 @@ p.page_translations.create(:locale => 'en', :title => 'About Bootstrap Starter P
 p.page_translations.create(:locale => 'ka', :title => "'Bootstrap Starter' პროექტის შესახებ", :content => "თქვენ ჩაუშვით 'rake db:seed' და ეს არის კონტენტის თარგმანის მაგალით. ტექსტის სხვა ენაზე სანახავად დააჭირეთ ენის გადამრთველის ბმულს მარჯვენა ზედა კუთხეში.")
 
 #####################
-## 
+## Default Dropdown Values
 #####################
+
+puts "Loading Defaults for Dropdowns"
+
+Status.delete_all
+StatusTranslation.delete_all
+
+s = Status.create(:id => 1)
+s.status_translations.create(:locale => 'en', :name => 'Draft')
+s.status_translations.create(:locale => 'ka', :name => 'Draft')
+
+s = Status.create(:id => 2)
+s.status_translations.create(:locale => 'en', :name => 'Duplicate')
+s.status_translations.create(:locale => 'ka', :name => 'Duplicate')
+
+s = Status.create(:id => 3)
+s.status_translations.create(:locale => 'en', :name => 'Published')
+s.status_translations.create(:locale => 'ka', :name => 'Published')

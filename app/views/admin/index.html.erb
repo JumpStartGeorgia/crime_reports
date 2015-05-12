@@ -2,13 +2,52 @@
 
   <% if current_user.role? User::ROLES[:admin] %>
    <div class="col-sm-4">
+
+    <h2>Users</h2>
  		<ul class="standard">
  			<li>
        <%= link_to t('.users'), admin_users_path %>
       </li>
- 			<li>
-       <%= link_to t('.pages'), admin_pages_path %>
-      </li>
  		</ul>
+
+    <h2>Text</h2>
+    <ul class="standard">
+      <li>
+      <%= link_to t('.pages'), admin_pages_path %>
+     </li>
+    </ul>
+    <h2>Report Dropdowns</h2>
+    <ul class="standard">
+      <li>
+        <%= link_to t('.statuses'), admin_statuses_path %>
+      </li>
+      <li>
+        <%= link_to t('.motives'), admin_motives_path %>
+      </li>
+      <li>
+        <%= link_to t('.relationships'), admin_relationships_path %>
+      </li>
+      <li>
+        <%= link_to t('.weapons'), admin_weapons_path %>
+      </li>
+      <li>
+        <%= link_to t('.actor_types'), admin_actor_types_path %>
+      </li>
+      <li>
+        <%= link_to t('.education_statuses'), admin_education_statuses_path %>
+      </li>
+      <li>
+        <%= link_to t('.employment_statuses'), admin_employment_statuses_path %>
+      </li>
+      <li>
+        <%= link_to t('.family_statuses'), admin_family_statuses_path %>
+      </li>
+      <li>
+        <%= link_to t('.social_statuses'), admin_social_statuses_path %>
+      </li>
+      <li>
+        <%= link_to t('.substances'), admin_substances_path %>
+      </li>
+    </ul>
   </div>
   <% end %>
