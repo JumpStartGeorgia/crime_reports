@@ -61,6 +61,8 @@
 									</li>
 			          </ul>
 			        </li>
+            <% else %>
+              <li><%= link_to t('helpers.links.sign_in2'), new_user_session_path %></li>  
 	          <% end %>
 						<% I18n.available_locales.each do |locale| %>
 							<% if locale != I18n.locale %>
