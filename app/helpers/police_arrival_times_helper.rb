@@ -1,0 +1,2 @@
+module PoliceArrivalTimesHelper
+end

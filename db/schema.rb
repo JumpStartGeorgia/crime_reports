@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150608184940) do
+ActiveRecord::Schema.define(:version => 20150608191010) do
 
   create_table "actor_type_translations", :force => true do |t|
     t.integer  "actor_type_id"
@@ -163,6 +163,23 @@ ActiveRecord::Schema.define(:version => 20150608184940) do
 
   add_index "pages", ["name"], :name => "index_pages_on_name"
 
+  create_table "police_arrival_time_translations", :force => true do |t|
+    t.integer  "police_arrival_time_id"
+    t.string   "locale",                 :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.string   "name"
+  end
+
+  add_index "police_arrival_time_translations", ["locale"], :name => "index_police_arrival_time_translations_on_locale"
+  add_index "police_arrival_time_translations", ["police_arrival_time_id"], :name => "index_5ce134b863f9bcab80c3f8f25190d5fe9b05a679"
+
+  create_table "police_arrival_times", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "relationship_translations", :force => true do |t|
     t.integer  "relationship_id"
     t.string   "locale",          :null => false
@@ -193,9 +210,9 @@ ActiveRecord::Schema.define(:version => 20150608184940) do
     t.integer  "weapon_id"
     t.integer  "motive_id"
     t.integer  "status_id"
-    t.integer  "police_arrival_id"
     t.integer  "location_category_id"
     t.integer  "emergency_arrival_time_id"
+    t.integer  "police_arrival_time_id"
   end
 
   add_index "reports", ["motive_id"], :name => "index_reports_on_motive_id"
