@@ -6,13 +6,13 @@
     <%= f.input :crime_date %>
     <%= f.input :crime_time %>
     <%= f.input :location_address %>
+		<%= f.input :district_id, as: :select, collection: District.all %>
     <%= f.input :location_lat %>
     <%= f.input :location_lon %>
     <%= f.input :location_category_id, as: :select, collection: LocationCategory.all %>
     <%= f.input :location_lat %>
     <%= f.input :emergency_arrival_time_id, as: :select, collection: EmergencyArrivalTime.all %>
     <%= f.input :police_arrival_time_id, as: :select, collection: PoliceArrivalTime.all %>
-		<%= f.input :relationship_id, as: :select, collection: Relationship.all %>
 		<%= f.input :weapon_id, as: :select, collection: Weapon.all %>
 		<%= f.input :motive_id, as: :select, collection: Motive.all %>
 		<%= f.input :status_id, as: :select, collection: Status.all %>

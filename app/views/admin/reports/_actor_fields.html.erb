@@ -2,6 +2,7 @@
   <h3>Actor</h3>
   <%= f.inputs do %>
     <%= f.input :actor_type_id, as: :select, collection: ActorType.all %>
+    <%= f.input :relationship_id, as: :select, collection: Relationship.all %>
     <%= f.input :fname, :label => 'First Name' %>
     <%= f.input :lname, :label => 'Last Name' %>
     <%= f.input :gender, :as => :radio, :collection => ['Male', 'Female'] %>

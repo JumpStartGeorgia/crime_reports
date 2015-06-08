@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150608193108) do
+ActiveRecord::Schema.define(:version => 20150608202033) do
 
   create_table "actor_type_translations", :force => true do |t|
     t.integer  "actor_type_id"
@@ -48,15 +48,34 @@ ActiveRecord::Schema.define(:version => 20150608193108) do
     t.integer  "family_status_id"
     t.integer  "social_status_id"
     t.integer  "substance_id"
+    t.integer  "relationship_id"
   end
 
   add_index "actors", ["actor_type_id"], :name => "index_actors_on_actor_type_id"
   add_index "actors", ["education_status_id"], :name => "index_actors_on_education_status_id"
   add_index "actors", ["employment_status_id"], :name => "index_actors_on_employment_status_id"
   add_index "actors", ["family_status_id"], :name => "index_actors_on_family_status_id"
+  add_index "actors", ["relationship_id"], :name => "index_actors_on_relationship_id"
   add_index "actors", ["report_id"], :name => "index_actors_on_report_id"
   add_index "actors", ["social_status_id"], :name => "index_actors_on_social_status_id"
   add_index "actors", ["substance_id"], :name => "index_actors_on_substance_id"
+
+  create_table "district_translations", :force => true do |t|
+    t.integer  "district_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "name"
+  end
+
+  add_index "district_translations", ["district_id"], :name => "index_district_translations_on_district_id"
+  add_index "district_translations", ["locale"], :name => "index_district_translations_on_locale"
+
+  create_table "districts", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "education_status_translations", :force => true do |t|
     t.integer  "education_status_id"
@@ -223,17 +242,17 @@ ActiveRecord::Schema.define(:version => 20150608193108) do
     t.float    "location_lon"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
-    t.integer  "relationship_id"
     t.integer  "weapon_id"
     t.integer  "motive_id"
     t.integer  "status_id"
     t.integer  "location_category_id"
     t.integer  "emergency_arrival_time_id"
     t.integer  "police_arrival_time_id"
+    t.integer  "district_id"
   end
 
+  add_index "reports", ["district_id"], :name => "index_reports_on_district_id"
   add_index "reports", ["motive_id"], :name => "index_reports_on_motive_id"
-  add_index "reports", ["relationship_id"], :name => "index_reports_on_relationship_id"
   add_index "reports", ["status_id"], :name => "index_reports_on_status_id"
   add_index "reports", ["weapon_id"], :name => "index_reports_on_weapon_id"
 
