@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150608191010) do
+ActiveRecord::Schema.define(:version => 20150608193108) do
 
   create_table "actor_type_translations", :force => true do |t|
     t.integer  "actor_type_id"
@@ -125,6 +125,23 @@ ActiveRecord::Schema.define(:version => 20150608191010) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "location_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "location_category_translations", :force => true do |t|
+    t.integer  "location_category_id"
+    t.string   "locale",               :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "name"
+  end
+
+  add_index "location_category_translations", ["locale"], :name => "index_location_category_translations_on_locale"
+  add_index "location_category_translations", ["location_category_id"], :name => "index_location_category_translations_on_location_category_id"
 
   create_table "motive_translations", :force => true do |t|
     t.integer  "motive_id"
