@@ -1,8 +1,6 @@
 BootstrapStarter::Application.routes.draw do
 
 
-
-
 	#--------------------------------
 	# all resources should be within the scope block below
 	#--------------------------------
@@ -15,6 +13,9 @@ BootstrapStarter::Application.routes.draw do
 
 
 		namespace :admin do
+      resources :gun_perms
+      resources :crim_bgs
+      resources :under_influences
       resources :districts
       resources :location_categories
       resources :police_arrival_times

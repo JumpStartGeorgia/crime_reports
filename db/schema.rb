@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150608202033) do
+ActiveRecord::Schema.define(:version => 20150608213718) do
 
   create_table "actor_type_translations", :force => true do |t|
     t.integer  "actor_type_id"
@@ -36,9 +36,6 @@ ActiveRecord::Schema.define(:version => 20150608202033) do
     t.boolean  "gender"
     t.date     "dob"
     t.integer  "children"
-    t.boolean  "crim_back"
-    t.boolean  "mental_reg"
-    t.boolean  "gun"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.integer  "report_id"
@@ -49,16 +46,38 @@ ActiveRecord::Schema.define(:version => 20150608202033) do
     t.integer  "social_status_id"
     t.integer  "substance_id"
     t.integer  "relationship_id"
+    t.integer  "under_influence_id"
+    t.integer  "crim_bg_id"
+    t.integer  "gun_perm_id"
   end
 
   add_index "actors", ["actor_type_id"], :name => "index_actors_on_actor_type_id"
+  add_index "actors", ["crim_bg_id"], :name => "index_actors_on_crim_bg_id"
   add_index "actors", ["education_status_id"], :name => "index_actors_on_education_status_id"
   add_index "actors", ["employment_status_id"], :name => "index_actors_on_employment_status_id"
   add_index "actors", ["family_status_id"], :name => "index_actors_on_family_status_id"
+  add_index "actors", ["gun_perm_id"], :name => "index_actors_on_gun_perm_id"
   add_index "actors", ["relationship_id"], :name => "index_actors_on_relationship_id"
   add_index "actors", ["report_id"], :name => "index_actors_on_report_id"
   add_index "actors", ["social_status_id"], :name => "index_actors_on_social_status_id"
   add_index "actors", ["substance_id"], :name => "index_actors_on_substance_id"
+
+  create_table "crim_bg_translations", :force => true do |t|
+    t.integer  "crim_bg_id"
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  add_index "crim_bg_translations", ["crim_bg_id"], :name => "index_crim_bg_translations_on_crim_bg_id"
+  add_index "crim_bg_translations", ["locale"], :name => "index_crim_bg_translations_on_locale"
+
+  create_table "crim_bgs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "district_translations", :force => true do |t|
     t.integer  "district_id"
@@ -140,6 +159,23 @@ ActiveRecord::Schema.define(:version => 20150608202033) do
   add_index "family_status_translations", ["locale"], :name => "index_family_status_translations_on_locale"
 
   create_table "family_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "gun_perm_translations", :force => true do |t|
+    t.integer  "gun_perm_id"
+    t.string   "locale",      :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "name"
+  end
+
+  add_index "gun_perm_translations", ["gun_perm_id"], :name => "index_gun_perm_translations_on_gun_perm_id"
+  add_index "gun_perm_translations", ["locale"], :name => "index_gun_perm_translations_on_locale"
+
+  create_table "gun_perms", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -302,6 +338,23 @@ ActiveRecord::Schema.define(:version => 20150608202033) do
   add_index "substance_translations", ["substance_id"], :name => "index_substance_translations_on_substance_id"
 
   create_table "substances", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "under_influence_translations", :force => true do |t|
+    t.integer  "under_influence_id"
+    t.string   "locale",             :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "name"
+  end
+
+  add_index "under_influence_translations", ["locale"], :name => "index_under_influence_translations_on_locale"
+  add_index "under_influence_translations", ["under_influence_id"], :name => "index_under_influence_translations_on_under_influence_id"
+
+  create_table "under_influences", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

@@ -12,9 +12,9 @@
     <%= f.input :employment_status_id, as: :select, collection: EmploymentStatus.all %>
     <%= f.input :education_status_id, as: :select, collection: EducationStatus.all %>
     <%= f.input :children, :label => 'Number of Children' %>
-    <%= f.input :crim_back, :as => :radio, :label => 'Has Criminal Background?' %>
-    <%= f.input :mental_reg, :as => :radio, :label => 'Has Mental History?'  %>
-    <%= f.input :gun, :as => :radio, :label => 'Has Gun?' %>
+    <%= f.input :crim_bg_id, as: :select, collection: CrimBg.all %>
+    <%= f.input :under_influence, as: :select, collection: UnderInfluence.all %>
+    <%= f.input :gun_perm_id, as: :select, collection: GunPerm.all %>
     <%= f.input :substance_id, as: :select, collection: Substance.all %>
 
     <%= link_to_remove_association "Remove Actor", f, :class => 'btn btn-warning' %>
