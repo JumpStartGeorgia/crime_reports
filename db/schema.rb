@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150511213553) do
+ActiveRecord::Schema.define(:version => 20150608184940) do
 
   create_table "actor_type_translations", :force => true do |t|
     t.integer  "actor_type_id"
@@ -70,6 +70,23 @@ ActiveRecord::Schema.define(:version => 20150511213553) do
   add_index "education_status_translations", ["locale"], :name => "index_education_status_translations_on_locale"
 
   create_table "education_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "emergency_arrival_time_translations", :force => true do |t|
+    t.integer  "emergency_arrival_time_id"
+    t.string   "locale",                    :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "name"
+  end
+
+  add_index "emergency_arrival_time_translations", ["emergency_arrival_time_id"], :name => "index_25e3f3020462a3e5d15ee3f82ff21966e637f050"
+  add_index "emergency_arrival_time_translations", ["locale"], :name => "index_emergency_arrival_time_translations_on_locale"
+
+  create_table "emergency_arrival_times", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -170,15 +187,15 @@ ActiveRecord::Schema.define(:version => 20150511213553) do
     t.string   "location_address"
     t.float    "location_lat"
     t.float    "location_lon"
-    t.string   "location_category"
-    t.time     "emergency_arrival_time"
-    t.time     "police_arrival_time"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "relationship_id"
     t.integer  "weapon_id"
     t.integer  "motive_id"
     t.integer  "status_id"
+    t.integer  "police_arrival_id"
+    t.integer  "location_category_id"
+    t.integer  "emergency_arrival_time_id"
   end
 
   add_index "reports", ["motive_id"], :name => "index_reports_on_motive_id"
