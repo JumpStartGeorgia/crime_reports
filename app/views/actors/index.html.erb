@@ -1,0 +1,21 @@
+<%- model_class = Actor -%>
+<% title 'People' %>
+
+<table id="actors" class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th><%= model_class.human_attribute_name(:actor_type_id) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= link_to 'View', actor_path(actor), class: 'btn btn-default' %></td>
+        <td><%= actor.full_name %></td>
+        <td><%= actor.actor_type.name if actor.actor_type_id.present? && actor.actor_type.present? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -39,6 +39,14 @@ $(document).ready(function() {
         ],
 
       });
+    }else if ($('table#actors')){
+      $('.table').DataTable({
+        "order": [[1, 'asc']],
+        "columnDefs": [
+          { orderable: false, targets: [0] }
+        ],
+
+      });
     }else{
       $('.table').DataTable();
     }

@@ -27,7 +27,7 @@ module ApplicationHelper
   def current_url
     "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
   end
-  
+
 	def full_url(path)
 		"#{request.protocol}#{request.host_with_port}#{path}"
 	end
@@ -35,7 +35,7 @@ module ApplicationHelper
 	# put the default locale first and then sort the remaining locales
 	def create_sorted_locales
     x = I18n.available_locales.dup
-    
+
     # sort
     x.sort!{|x,y| x <=> y}
 
@@ -90,4 +90,42 @@ module ApplicationHelper
   def page_navigation_links(pages)
     will_paginate(pages, :class => 'pagination', :inner_window => 2, :outer_window => 0, :renderer => BootstrapLinkRenderer, :previous_label => '&larr;'.html_safe, :next_label => '&rarr;'.html_safe)
   end
+
+##
+# Index page
+##
+
+  def weaponed(weapon_id)
+    wverbs = { 1 => 'shot',
+                2 => 'stabbed',
+                3 => 'beaten',
+                4 => 'killed',
+                5 => 'drowned',
+                6 => 'choked',
+                7 => 'killed',
+                8 => 'killed' }
+    v = wverbs[weapon_id]
+    return v
+  end
+
+  def heshe(victim)
+    if victim.gender_id == 1
+      'She'
+    elsif victim.gender_id == 2
+      'He'
+    else
+      'The victim '
+    end
+  end
+
+  def age(victim)
+    Time.now.year - victim.yob
+  end
+
+  def indefinite_articlerize(params_word)
+    %w(a e i o u).include?(params_word[0].downcase) ? "an #{params_word}" : "a #{params_word}"
+  end
+
+
+
 end

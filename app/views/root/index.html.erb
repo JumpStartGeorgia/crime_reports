@@ -1,11 +1,12 @@
 
-<div class="container">
+<div class="container" id="root">
   <div class="row">
-    <div class="col-md-4"
-      <h2>Meet <%= @victim.fname %></h2>
-    </div>
-    <div class="col-md-8">
-      <%= simple_format_no_tags(@home_about.content, {}, {sanitize: false}) if @home_about.present? %>
+    <div class="well well-lg">
+        <h2>Meet <%= link_to @victim.full_name, actor_path(@victim) %>.</h2>
+        <p><%= @victim.fname%> was <b><%= weaponed(@victim.report.weapon_id) %></b> by <b><%= indefinite_articlerize(@victim.report.weapon.name.downcase) %></b>.</p>
+        <p><%= heshe(@victim) %> was <%= age(@victim) %> years old.
+        <p><%= heshe(@victim) %> <b>might</b> have lived to be <%= @lexpect[:female] %>.</p>
+        <p><%= @victim.fname %> <b>lost</b> <%= @lexpect[:female] - age(@victim) %> years of her life.</p>
     </div>
   </div><!-- row -->
 </div><!-- container -->
