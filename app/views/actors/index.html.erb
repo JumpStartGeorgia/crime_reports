@@ -1,0 +1,21 @@
+<%- model_class = Actor -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th><%= model_class.human_attribute_name(:actor_type_id) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @actors.each do |actor| %>
+      <tr>
+        <td><%= link_to actor.full_name, actor_path(actor)  %></td>
+        <td><%= link_to actor.actor_type_id  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

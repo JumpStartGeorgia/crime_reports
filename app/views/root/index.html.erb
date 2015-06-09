@@ -1,11 +1,12 @@
 
-<div class="container">
+<div class="container" id="root">
   <div class="row">
-    <div class="col-md-4"
-      <h2>Meet <%= @victim.fname %></h2>
-    </div>
-    <div class="col-md-8"
-      <%= simple_format_no_tags(@home_about.content, {}, {sanitize: false}) %>
+    <div class="well well-lg">
+        <h2>Meet <%= @victim.full_name %>.</h2>
+        <p>On <%= @victim.report.crime_date.strftime('%e %B %Y') %> <%= @victim.fname%> was <b><%= weaponed(@victim.report.weapon_id) %></b> by a <b><%= @victim.report.weapon.name.downcase %></b>.</p>
+        <p><%= @victim.fname %> was <%= age(@victim) %> years old.
+        <p>She <b>might</b> have lived to be <%= @lexpect[:female] %>.</p>
+        <p><%= @victim.fname %> <b>lost</b> <%= @lexpect[:female] - age(@victim) %> years of her life.</p>
     </div>
   </div><!-- row -->
 </div><!-- container -->

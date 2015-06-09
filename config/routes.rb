@@ -1,5 +1,7 @@
 BootstrapStarter::Application.routes.draw do
 
+
+
 	#--------------------------------
 	# all resources should be within the scope block below
 	#--------------------------------
@@ -36,6 +38,8 @@ BootstrapStarter::Application.routes.draw do
 		end
 
 		get 'about', to: 'root#about'
+
+    resources :actors
 
 		# all routes before this!!!
 
