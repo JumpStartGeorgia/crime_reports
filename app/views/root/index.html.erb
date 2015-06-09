@@ -4,8 +4,8 @@
     <div class="col-md-4"
       <h2>Meet <%= @victim.fname %></h2>
     </div>
-    <div class="col-md-8"
-      <%= simple_format_no_tags(@home_about.content, {}, {sanitize: false}) %>
+    <div class="col-md-8">
+      <%= simple_format_no_tags(@home_about.content, {}, {sanitize: false}) if @home_about.present? %>
     </div>
   </div><!-- row -->
 </div><!-- container -->

@@ -20,6 +20,35 @@ en:
       page_translation:
         title: Title to show above content
         content: Content
+      report:
+        crime_date: Date
+        official_case_number: Case Number
+        location_address: Address
+        district_id: District
+        location_category: Place of Crime
+        emergency_arrival_time: Emergency Arrival Time
+        police_arrival_time: Police Arrival Time
+        weapon: Weapon
+        motive: Motive
+        status: Status
+        victims: Victims
+        victim: Victim
+        perpetrators: Perpetrators
+        perpetrator: Perpetrator
+      actor:
+        fname: First Name
+        lname: Last Name
+        name: Name
+        gender_id: Gender
+        yob: Year of Birth
+        relationship_id: Relationship
+        education_status_id: Education Status
+        employment_status_id: Employment Status
+        family_status_id: Family Status
+        social_status: Social Status
+        under_influence_id: Under Influence
+        crim_bg_id: Criminal Background
+        gun_perm_id: Gun Permit
     errors:
       messages:
         required_field: "is a required field."

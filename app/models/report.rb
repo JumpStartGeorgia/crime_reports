@@ -12,4 +12,21 @@ class Report < ActiveRecord::Base
   has_many :actors
 
   accepts_nested_attributes_for :actors, :reject_if => :all_blank, :allow_destroy => true
+
+  def self.recent
+    order('crime_date desc')
+  end 
+
+  def self.is_published
+    where(status_id: 3)
+  end
+
+
+  def victims
+    self.actors.is_victim
+  end
+
+  def perps
+    self.actors.is_perp
+  end
 end

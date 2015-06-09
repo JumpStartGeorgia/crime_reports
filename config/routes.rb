@@ -37,12 +37,12 @@ BootstrapStarter::Application.routes.draw do
 
 		get 'about', to: 'root#about'
 
+    resources :reports, only: [:index, :show]
+
 		# all routes before this!!!
 
 		root :to => 'root#index'
 	  match "*path", :to => redirect("/#{I18n.default_locale}") # handles /en/fake/path/whatever
-
-
 
 	end
 

@@ -1,0 +1,59 @@
+<%- model_class = Report -%>
+<% title t '.title', :default => model_class.model_name.human.titleize %>
+
+<ul class="list-unstyled">
+  <li>
+    <strong><%= model_class.human_attribute_name(:crime_date) %>:</strong>
+    <%= @report.crime_date %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:official_case_number) %>:</strong>
+    <%= @report.official_case_number %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:district_id) %>:</strong>
+    <%= @report.district.name if @report.district_id %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:location_address) %>:</strong>
+    <%= @report.location_address %>
+  </li>
+
+  <li>
+    <strong><%= model_class.human_attribute_name(:location_category) %>:</strong>
+    <%= @report.location_category.name if @report.location_category_id %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:emergency_arrival_time) %>:</strong>
+    <%= @report.emergency_arrival_time.name if @report.emergency_arrival_time_id.present? %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:police_arrival_time) %>:</strong>
+    <%= @report.police_arrival_time.name if @report.police_arrival_time_id.present? %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:weapon_id) %>:</strong>
+    <%= @report.weapon.name if @report.weapon_id.present? %>
+  </li>
+  <li>
+    <strong><%= model_class.human_attribute_name(:motive_id) %>:</strong>
+    <%= @report.motive.name if @report.motive_id.present? %>
+  </li>
+</ul>
+
+<h2>Victim(s)</h2>
+
+<div class="clear">
+  <% @report.victims.each do |actor| %>
+    <%= render :partial => 'actor', locals: {actor: actor} %>
+  <% end %>
+</div>
+
+<h2>Perpetrator(s)</h2>
+
+<div class="clear">
+  <% @report.perps.each do |actor| %>
+    <%= render :partial => 'actor', locals: {actor: actor} %>
+  <% end %>
+</div>
+

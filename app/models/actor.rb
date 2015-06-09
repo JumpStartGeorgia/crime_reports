@@ -17,4 +17,13 @@ class Actor < ActiveRecord::Base
   belongs_to :employment_status
   belongs_to :family_status
   belongs_to :social_status
+
+
+  def self.is_victim
+    where(actor_type_id: 2)
+  end
+
+  def self.is_perp
+    where(actor_type_id: 1)
+  end
 end

@@ -1,0 +1,54 @@
+<%- a_model_class = Actor -%>
+
+<% if actor.present? %>
+  <div class="col-sm-4">
+    <ul class="list-unstyled">
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:name) %>:</strong>
+        <%= actor.full_name %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:relationship_id) %>:</strong>
+        <%= actor.relationship.name if actor.relationship_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:gender_id) %>:</strong>
+        <%= actor.gender.name if actor.gender_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:yob) %>:</strong>
+        <%= actor.yob %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:education_status_id) %>:</strong>
+        <%= actor.education_status.name if actor.education_status_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:employment_status_id) %>:</strong>
+        <%= actor.employment_status.name if actor.employment_status_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:family_status_id) %>:</strong>
+        <%= actor.family_status.name if actor.family_status_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:social_status_id) %>:</strong>
+        <%= actor.social_status.name if actor.social_status_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:under_influence_id) %>:</strong>
+        <%= actor.under_influence.name if actor.under_influence_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:crim_bg_id) %>:</strong>
+        <%= actor.crim_bg.name if actor.crim_bg_id.present? %>
+      </li>
+      <li>
+        <strong><%= a_model_class.human_attribute_name(:gun_perm_id) %>:</strong>
+        <%= actor.gun_perm.name if actor.gun_perm_id.present? %>
+      </li>
+
+    </ul>
+
+  </div>
+<% end %>
