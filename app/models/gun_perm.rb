@@ -1,5 +1,5 @@
 class GunPerm < ActiveRecord::Base
-  attr_accessible :name, :gun_perm_translations_attributes
+  attr_accessible :name, :gun_perm_translations_attributes, :id
 
   translates :name
 

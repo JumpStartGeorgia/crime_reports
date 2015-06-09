@@ -1,5 +1,5 @@
 class LocationCategory < ActiveRecord::Base
-  attr_accessible :name, :location_category_translations_attributes
+  attr_accessible :name, :location_category_translations_attributes, :id
 
   translates :name
 

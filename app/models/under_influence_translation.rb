@@ -1,5 +1,5 @@
 class UnderInfluenceTranslation < ActiveRecord::Base
-  attr_accessible :under_influence_id, :name, :locale, :under_influence_translations
+  attr_accessible :under_influence_id, :name, :locale, :under_influence_translations, :id
 
 	belongs_to :under_influence
 

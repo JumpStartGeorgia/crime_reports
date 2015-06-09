@@ -29,3 +29,7 @@ $(document).ready(function(){
 		.on('click.dropdown touchstart.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() });
 
 });
+
+$(document).ready(function() {
+    $('.table').DataTable();
+} );

@@ -5,8 +5,8 @@
     <%= f.input :relationship_id, as: :select, collection: Relationship.all %>
     <%= f.input :fname, :label => 'First Name' %>
     <%= f.input :lname, :label => 'Last Name' %>
-    <%= f.input :gender, :as => :radio, :collection => ['Male', 'Female'] %>
-    <%= f.input :dob, :label => 'Date of Birth' %>
+    <%= f.input :gender, as: :select, collection: Gender.all  %>
+    <%= f.input :yob, :label => 'Year of Birth' %>
     <%= f.input :family_status_id, as: :select, collection: FamilyStatus.all %>
     <%= f.input :social_status_id, as: :select, collection: SocialStatus.all %>
     <%= f.input :employment_status_id, as: :select, collection: EmploymentStatus.all %>

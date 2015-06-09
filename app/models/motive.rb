@@ -1,5 +1,5 @@
 class Motive < ActiveRecord::Base
-  attr_accessible :name, :motive_translations_attributes
+  attr_accessible :name, :motive_translations_attributes, :id
 
   translates :name
 

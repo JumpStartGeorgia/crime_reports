@@ -1,5 +1,5 @@
 class Substance < ActiveRecord::Base
-  attr_accessible :name, :substance_translations_attributes
+  attr_accessible :name, :substance_translations_attributes, :id
 
   translates :name
 

@@ -1,5 +1,5 @@
 class EducationStatusTranslation < ActiveRecord::Base
-  attr_accessible :education_status_id, :name, :locale, :education_status_translations
+  attr_accessible :education_status_id, :name, :locale, :id, :education_status_translations
 
 	belongs_to :education_status
 

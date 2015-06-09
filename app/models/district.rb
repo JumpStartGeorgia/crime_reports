@@ -1,5 +1,5 @@
 class District < ActiveRecord::Base
-  attr_accessible :name, :district_translations_attributes
+  attr_accessible :name, :district_translations_attributes, :id
 
   translates :name
 

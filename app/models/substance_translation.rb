@@ -1,5 +1,5 @@
 class SubstanceTranslation < ActiveRecord::Base
-  attr_accessible :substance_id, :name, :locale, :substance_translations
+  attr_accessible :substance_id, :name, :locale, :substance_translations, :id
 
 	belongs_to :substance
 

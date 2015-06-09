@@ -1,5 +1,5 @@
 class ActorType < ActiveRecord::Base
-  attr_accessible :name, :actor_type_translations_attributes
+  attr_accessible :name, :actor_type_translations_attributes, :id
 
   translates :name
 

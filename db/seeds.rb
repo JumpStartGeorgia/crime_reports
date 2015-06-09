@@ -432,6 +432,23 @@ ui = Substance.create(:id => 8)
 ui.substance_translations.create(:locale => 'en', :name => 'Unknown')
 ui.substance_translations.create(:locale => 'ka', :name => 'Unknown')
 
+# Genders
+
+Gender.delete_all
+GenderTranslation.delete_all
+
+g = Gender.create(:id => 1)
+g.gender_translations.create(:locale => 'en', :name => 'Female')
+g.gender_translations.create(:locale => 'ka', :name => 'Female')
+
+g = Gender.create(:id => 2)
+g.gender_translations.create(:locale => 'en', :name => 'Male')
+g.gender_translations.create(:locale => 'ka', :name => 'Male')
+
+g = Gender.create(:id => 3)
+g.gender_translations.create(:locale => 'en', :name => 'Unknown')
+g.gender_translations.create(:locale => 'ka', :name => 'Unknown')
+
 # Districts
 
 District.delete_all

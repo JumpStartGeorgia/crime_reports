@@ -1,5 +1,5 @@
 class ActorTypeTranslation < ActiveRecord::Base
-  attr_accessible :actor_type_id, :name, :locale, :actor_type_translations
+  attr_accessible :actor_type_id, :name, :locale, :actor_type_translations, :id
 
 	belongs_to :actor_type
 

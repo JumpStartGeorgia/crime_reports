@@ -1,11 +1,13 @@
 
 <div class="container">
+  <h1>About Homicide Watch Georgia</h1>
   <div class="row">
-    <div class="col-md-4"
-      <%= simple_format_no_tags(@home_about.content, {}, {sanitize: false}) %>
-    </div>
-    <div class="col-md-8"
-      <%= simple_format_no_tags(@home_about.content, {}, {sanitize: false}) %>
+    <div class="col-md-12">
+      <%= simple_format_no_tags(@about.content, {}, {sanitize: false}) %>
+      <div class="about-logos">
+        <%= link_to image_tag("js_logo.png"), "http://jumpstart.ge/en", :height => '150', :alt => 'JumpStart Logo' %>
+        <%= link_to image_tag("gipa_logo.png", :height => '150', :alt => 'GIPA Logo'), "http://gipa.ge" %>
+      </div>
     </div>
   </div><!-- row -->
 </div><!-- container -->

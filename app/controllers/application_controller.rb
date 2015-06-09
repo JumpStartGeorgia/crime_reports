@@ -59,6 +59,7 @@ logger.debug "////////////////////////// BROWSER = #{user_agent}"
 
 	def preload_global_variables
     # indicate that whether login should allow local and omniauth or just locale
+		@victim_type_id = 2
 	  @enable_omniauth = false
   end
 

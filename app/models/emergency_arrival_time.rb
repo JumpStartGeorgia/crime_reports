@@ -1,5 +1,5 @@
 class EmergencyArrivalTime < ActiveRecord::Base
-  attr_accessible :name, :emergency_arrival_time_translations_attributes
+  attr_accessible :name, :emergency_arrival_time_translations_attributes, :id
 
   translates :name
 

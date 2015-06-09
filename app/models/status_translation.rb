@@ -1,5 +1,5 @@
 class StatusTranslation < ActiveRecord::Base
-  attr_accessible :status_id, :name, :locale, :status_translations
+  attr_accessible :status_id, :name, :locale, :status_translations, :id
 
 	belongs_to :status
 

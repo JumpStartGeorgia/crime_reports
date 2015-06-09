@@ -1,5 +1,5 @@
 class EmploymentStatusTranslation < ActiveRecord::Base
-  attr_accessible :employment_status_id, :name, :locale, :employment_status_translations
+  attr_accessible :employment_status_id, :name, :locale, :id, :employment_status_translations
 
 	belongs_to :employment_status
 

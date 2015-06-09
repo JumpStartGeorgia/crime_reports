@@ -1,5 +1,5 @@
 class Relationship < ActiveRecord::Base
-  attr_accessible :name, :relationship_translations_attributes
+  attr_accessible :name, :relationship_translations_attributes, :id
 
   translates :name
   has_many :relationship_translations, :dependent => :destroy

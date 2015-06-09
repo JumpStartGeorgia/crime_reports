@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150608213718) do
+ActiveRecord::Schema.define(:version => 20150609082043) do
 
   create_table "actor_type_translations", :force => true do |t|
     t.integer  "actor_type_id"
@@ -33,8 +33,6 @@ ActiveRecord::Schema.define(:version => 20150608213718) do
   create_table "actors", :force => true do |t|
     t.string   "fname"
     t.string   "lname"
-    t.boolean  "gender"
-    t.date     "dob"
     t.integer  "children"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
@@ -49,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20150608213718) do
     t.integer  "under_influence_id"
     t.integer  "crim_bg_id"
     t.integer  "gun_perm_id"
+    t.integer  "yob"
+    t.integer  "gender_id"
   end
 
   add_index "actors", ["actor_type_id"], :name => "index_actors_on_actor_type_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20150608213718) do
   add_index "actors", ["education_status_id"], :name => "index_actors_on_education_status_id"
   add_index "actors", ["employment_status_id"], :name => "index_actors_on_employment_status_id"
   add_index "actors", ["family_status_id"], :name => "index_actors_on_family_status_id"
+  add_index "actors", ["gender_id"], :name => "index_actors_on_gender_id"
   add_index "actors", ["gun_perm_id"], :name => "index_actors_on_gun_perm_id"
   add_index "actors", ["relationship_id"], :name => "index_actors_on_relationship_id"
   add_index "actors", ["report_id"], :name => "index_actors_on_report_id"
@@ -159,6 +160,23 @@ ActiveRecord::Schema.define(:version => 20150608213718) do
   add_index "family_status_translations", ["locale"], :name => "index_family_status_translations_on_locale"
 
   create_table "family_statuses", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "gender_translations", :force => true do |t|
+    t.integer  "gender_id"
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
+  end
+
+  add_index "gender_translations", ["gender_id"], :name => "index_gender_translations_on_gender_id"
+  add_index "gender_translations", ["locale"], :name => "index_gender_translations_on_locale"
+
+  create_table "genders", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

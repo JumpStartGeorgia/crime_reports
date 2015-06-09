@@ -1,5 +1,5 @@
 class Report < ActiveRecord::Base
-  attr_accessible :crime_date, :crime_time, :emergency_arrival_time_id, :location_address, :district_id, :location_category_id, :location_lat, :location_lon, :motive_id, :official_case_number, :police_arrival_time_id, :relationship_id, :weapon_id, :motive_id, :status_id, :actors_attributes
+  attr_accessible :crime_date, :crime_time, :emergency_arrival_time_id, :location_address, :district_id, :location_category_id, :location_lat, :location_lon, :motive_id, :official_case_number, :police_arrival_time_id, :relationship_id, :weapon_id, :motive_id, :status_id, :actors_attributes, :id
 
   belongs_to :district
   belongs_to :location_category

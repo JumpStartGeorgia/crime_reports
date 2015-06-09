@@ -1,5 +1,5 @@
 class FamilyStatusTranslation < ActiveRecord::Base
-  attr_accessible :family_status_id, :name, :locale, :family_status_translations
+  attr_accessible :family_status_id, :name, :locale, :family_status_translations, :id
 
 	belongs_to :family_status
 

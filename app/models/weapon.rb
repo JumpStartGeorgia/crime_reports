@@ -1,5 +1,5 @@
 class Weapon < ActiveRecord::Base
-  attr_accessible :name, :weapon_translations_attributes
+  attr_accessible :name, :weapon_translations_attributes, :id
 
   translates :name
 

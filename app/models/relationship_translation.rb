@@ -1,5 +1,5 @@
 class RelationshipTranslation < ActiveRecord::Base
-  attr_accessible :relationship_id, :name, :locale, :relationship_translations
+  attr_accessible :relationship_id, :name, :locale, :relationship_translations, :id
 
 	belongs_to :relationship
 

@@ -1,5 +1,5 @@
 class PoliceArrivalTimeTranslation < ActiveRecord::Base
-  attr_accessible :police_arrival_time_id, :name, :locale, :police_arrival_time_translations
+  attr_accessible :police_arrival_time_id, :name, :locale, :police_arrival_time_translations, :id
 
 	belongs_to :police_arrival_time
 

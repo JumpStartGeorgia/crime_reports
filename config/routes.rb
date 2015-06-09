@@ -1,6 +1,5 @@
 BootstrapStarter::Application.routes.draw do
 
-
 	#--------------------------------
 	# all resources should be within the scope block below
 	#--------------------------------
@@ -13,6 +12,7 @@ BootstrapStarter::Application.routes.draw do
 
 
 		namespace :admin do
+			resources :genders
       resources :gun_perms
       resources :crim_bgs
       resources :under_influences
@@ -35,9 +35,15 @@ BootstrapStarter::Application.routes.draw do
 			resources :users
 		end
 
+		get 'about', to: 'root#about'
+
+		# all routes before this!!!
 
 		root :to => 'root#index'
 	  match "*path", :to => redirect("/#{I18n.default_locale}") # handles /en/fake/path/whatever
+
+
+
 	end
 
 	match '', :to => redirect("/#{I18n.default_locale}") # handles /

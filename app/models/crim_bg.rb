@@ -1,5 +1,5 @@
 class CrimBg < ActiveRecord::Base
-  attr_accessible :name, :crim_bg_translations_attributes
+  attr_accessible :name, :crim_bg_translations_attributes, :id
 
   translates :name
 

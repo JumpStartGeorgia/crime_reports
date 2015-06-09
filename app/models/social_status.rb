@@ -1,5 +1,5 @@
 class SocialStatus < ActiveRecord::Base
-  attr_accessible :name, :social_status_translations_attributes
+  attr_accessible :name, :social_status_translations_attributes, :id
 
   translates :name
 
