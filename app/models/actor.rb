@@ -1,5 +1,5 @@
 class Actor < ActiveRecord::Base
-  attr_accessible :children, :crim_back, :yob, :fname, :gender, :gun, :lname, :mental_reg, :actor_type_id, :family_status_id, :social_status_id, :education_status_id, :employment_status_id, :substance_id, :relationship_id, :under_influence_id, :crim_bg_id, :gun_perm_id, :id
+  attr_accessible :children, :crim_back, :yob, :fname, :gender_id, :gun, :lname, :mental_reg, :actor_type_id, :family_status_id, :social_status_id, :education_status_id, :employment_status_id, :substance_id, :relationship_id, :under_influence_id, :crim_bg_id, :gun_perm_id, :id
 
   def full_name
     self.fname + ' ' + self.lname

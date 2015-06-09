@@ -2,10 +2,10 @@
 <div class="container" id="root">
   <div class="row">
     <div class="well well-lg">
-        <h2>Meet <%= @victim.full_name %>.</h2>
-        <p>On <%= @victim.report.crime_date.strftime('%e %B %Y') %> <%= @victim.fname%> was <b><%= weaponed(@victim.report.weapon_id) %></b> by a <b><%= @victim.report.weapon.name.downcase %></b>.</p>
-        <p><%= @victim.fname %> was <%= age(@victim) %> years old.
-        <p>She <b>might</b> have lived to be <%= @lexpect[:female] %>.</p>
+        <h2>Meet <%= link_to @victim.full_name, actor_path(@victim) %>.</h2>
+        <p><%= @victim.fname%> was <b><%= weaponed(@victim.report.weapon_id) %></b> by <b><%= indefinite_articlerize(@victim.report.weapon.name.downcase) %></b>.</p>
+        <p><%= heshe(@victim) %> was <%= age(@victim) %> years old.
+        <p><%= heshe(@victim) %> <b>might</b> have lived to be <%= @lexpect[:female] %>.</p>
         <p><%= @victim.fname %> <b>lost</b> <%= @lexpect[:female] - age(@victim) %> years of her life.</p>
     </div>
   </div><!-- row -->

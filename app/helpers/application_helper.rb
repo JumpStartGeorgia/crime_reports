@@ -109,9 +109,9 @@ module ApplicationHelper
   end
 
   def heshe(victim)
-    if victim.gender == 'Female'
+    if victim.gender_id == 1
       'She'
-    elsif victim.gender == 'Male'
+    elsif victim.gender_id == 2
       'He'
     else
       'The victim '
@@ -122,7 +122,9 @@ module ApplicationHelper
     Time.now.year - victim.yob
   end
 
-
+  def indefinite_articlerize(params_word)
+    %w(a e i o u).include?(params_word[0].downcase) ? "an #{params_word}" : "a #{params_word}"
+  end
 
 
 
