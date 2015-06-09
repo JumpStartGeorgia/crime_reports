@@ -51,3 +51,23 @@ $(document).ready(function() {
       $('.table').DataTable();
     }
 } );
+
+
+$(document).ready(function(){
+               
+ $(window).resize(function(){
+
+  $('#root .well').css({
+   position:'absolute',
+   left: ($(window).width() 
+     - $('#root .well').outerWidth())/2,
+   top: ($(window).height() - 95
+     - $('#root .well').outerHeight())/2
+  });
+    
+ });
+ 
+ // To initially run the function:
+ $(window).resize();
+
+});
