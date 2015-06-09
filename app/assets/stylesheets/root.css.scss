@@ -1,5 +1,4 @@
 #root {
-  margin: 25% 0 0 0;
 
   h2 {
     font-size: 4em;
@@ -12,4 +11,16 @@
   }
 
 
+}
+
+
+#root {
+  position: relative;
+}
+.row {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  transform: translate(-50%, -50%);
 }
